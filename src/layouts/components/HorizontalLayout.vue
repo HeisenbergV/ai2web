@@ -4,7 +4,7 @@
       <!-- 顶部导航 -->
       <el-header class="layout-header">
         <div class="header-left">
-          <span class="logo">Min AI Admin</span>
+          <span class="logo">AI to Web</span>
         </div>
         <div class="header-center">
           <HorizontalMenu />

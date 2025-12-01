@@ -7,7 +7,7 @@
         class="layout-aside"
       >
         <div class="logo-wrapper">
-          <span v-if="!appStore.sidebarCollapse" class="logo">Min AI Admin</span>
+          <span v-if="!appStore.sidebarCollapse" class="logo">AI to Web</span>
           <el-icon v-else class="logo-icon" @click="appStore.toggleSidebar">
             <Menu />
           </el-icon>

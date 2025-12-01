@@ -7,7 +7,7 @@
           <el-icon class="collapse-icon" @click="appStore.toggleSidebar">
             <Menu />
           </el-icon>
-          <span class="logo">Min AI Admin</span>
+          <span class="logo">AI to Web</span>
         </div>
         <div class="header-right">
           <HeaderTools />

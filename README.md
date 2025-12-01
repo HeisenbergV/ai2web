@@ -1,6 +1,16 @@
-# Min AI Admin - Vue3 后台管理框架
+# AI to Web - Vue3 后台管理框架
 
 一个基于 Vue3 + Pinia + Vue Router + Element Plus + Sass 的轻量级后台管理框架，提供完整的架构解决方案。
+
+## 📚 开发文档
+
+> **重要：** 使用 AI 助手开发时，请先阅读以下文档！
+
+- 📖 [文档目录](./docs/README.md) - 所有文档的索引
+- 🤖 [AI 系统提示词](./docs/AI_SYSTEM_PROMPT.md) - **新会话必读**，帮助 AI 快速理解项目架构
+- 🚀 [快速上手指南](./docs/QUICK_START.md) - 5分钟快速理解项目结构
+- 📝 [开发规范文档](./docs/DEVELOPMENT_GUIDE.md) - 详细的编码规范和最佳实践
+- 💬 [AI 对话模板](./docs/AI_CONVERSATION_TEMPLATE.md) - 标准对话模板，提高沟通效率
 
 ## 🎯 核心架构功能
 
@@ -398,11 +408,3 @@ app.js (Pinia Store)
 ## 📄 许可证
 
 MIT
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
----
-
-**Min AI Admin** - 让后台管理系统开发更简单、更高效！

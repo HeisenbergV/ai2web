@@ -22,7 +22,7 @@
     <el-card class="welcome-card" style="margin-top: 20px">
       <template #header>
         <div class="card-header">
-          <span>欢迎使用 Min AI Admin</span>
+          <span>欢迎使用 AI to Web</span>
         </div>
       </template>
       <p>这是一个基于 Vue3 + Pinia + Vue Router + Element Plus 的轻量级后台管理框架</p>
