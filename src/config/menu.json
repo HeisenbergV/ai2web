@@ -1,0 +1,67 @@
+[
+  {
+    "path": "/dashboard",
+    "name": "Dashboard",
+    "title": "仪表盘",
+    "icon": "Odometer",
+    "component": "Dashboard"
+  },
+  {
+    "path": "/features",
+    "name": "Features",
+    "title": "特性演示",
+    "icon": "StarFilled",
+    "children": [
+      {
+        "path": "/theme",
+        "name": "ThemeDemo",
+        "title": "主题设置",
+        "icon": "Sunny",
+        "component": "ThemeDemo"
+      },
+      {
+        "path": "/i18n",
+        "name": "I18nDemo",
+        "title": "国际化",
+        "icon": "ChatDotRound",
+        "component": "I18nDemo"
+      },
+      {
+        "path": "/layout",
+        "name": "LayoutDemo",
+        "title": "多种布局",
+        "icon": "Grid",
+        "component": "LayoutDemo"
+      },
+      {
+        "path": "/table",
+        "name": "TableDemo",
+        "title": "公共组件",
+        "icon": "Document",
+        "component": "TableDemo"
+      },
+      {
+        "path": "/request",
+        "name": "RequestDemo",
+        "title": "请求封装",
+        "icon": "Connection",
+        "component": "RequestDemo"
+      },
+      {
+        "path": "/sass",
+        "name": "SassDemo",
+        "title": "Sass 预处理器",
+        "icon": "Grid",
+        "component": "SassDemo"
+      },
+      {
+        "path": "/pinia",
+        "name": "PiniaDemo",
+        "title": "Pinia 状态管理",
+        "icon": "Setting",
+        "component": "PiniaDemo"
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,71 @@
+// ========== 通用样式 Mixin ==========
+
+// Demo 页面通用样式 Mixin
+@mixin demo-section {
+  margin-bottom: 20px;
+
+  h3 {
+    margin-bottom: 15px;
+    color: var(--el-text-color-primary);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  h4 {
+    margin-top: 0;
+    color: var(--el-text-color-primary);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  ul {
+    color: var(--el-text-color-regular);
+    line-height: 2;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  p {
+    color: var(--el-text-color-regular);
+    line-height: 1.8;
+    margin: 10px 0;
+  }
+
+  .description {
+    color: var(--el-text-color-secondary);
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+}
+
+// 代码块样式
+@mixin code-block {
+  background: var(--el-fill-color-light);
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+
+  code {
+    color: var(--el-text-color-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+  }
+}
+
+// 卡片样式
+@mixin card-style {
+  background: var(--el-bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--el-box-shadow-light);
+}
+
+// ========== 通用变量 ==========
+$base-spacing: 20px;
+$base-font-size: 16px;
+$border-radius: 8px;
+$transition-time: 0.3s;
+
