@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, markRaw } from 'vue'
 import router from '@/router'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { filterMenusByRoles } from '@/utils/permission'
 
 export const useMenuStore = defineStore('menu', () => {
   const menuList = ref([])
@@ -28,12 +29,35 @@ export const useMenuStore = defineStore('menu', () => {
     })
   }
   
-  // 从JSON加载菜单
-  const loadMenu = (menuData) => {
-    const processedMenuData = processMenu(menuData)
+  // 从JSON加载菜单（支持权限过滤）
+  const loadMenu = (menuData, userRoles = []) => {
+    // 先根据权限过滤菜单
+    const filteredMenus = filterMenusByRoles(menuData, userRoles)
+    // 处理图标转换
+    const processedMenuData = processMenu(filteredMenus)
     menuList.value = processedMenuData
-    // 动态添加路由
+    // 动态添加路由（只添加有权限的路由）
     addRoutes(processedMenuData)
+  }
+  
+  // 重新加载菜单（用于角色切换后刷新菜单）
+  const reloadMenu = (menuData, userRoles = []) => {
+    // 清除现有路由（除了基础路由）
+    clearDynamicRoutes()
+    // 重新加载菜单
+    loadMenu(menuData, userRoles)
+  }
+  
+  // 清除动态添加的路由
+  const clearDynamicRoutes = () => {
+    // 获取所有路由
+    const routes = router.getRoutes()
+    routes.forEach(route => {
+      // 只删除动态添加的路由（meta 中有 title 的）
+      if (route.meta && route.meta.title && route.name !== 'Dashboard' && route.name !== 'NotFound') {
+        router.removeRoute(route.name)
+      }
+    })
   }
   
   // 递归添加路由
@@ -54,7 +78,8 @@ export const useMenuStore = defineStore('menu', () => {
           meta: {
             title: menu.title,
             icon: menu.icon,
-            hidden: menu.hidden || false
+            hidden: menu.hidden || false,
+            roles: menu.roles || [] // 保存权限信息到路由 meta
           }
         }
         router.addRoute('layout', route)
@@ -64,7 +89,8 @@ export const useMenuStore = defineStore('menu', () => {
   
   return {
     menuList,
-    loadMenu
+    loadMenu,
+    reloadMenu
   }
 })
 

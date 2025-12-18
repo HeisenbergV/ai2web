@@ -159,6 +159,10 @@ const functionDemos = ref([
 </script>
 
 <style scoped lang="scss">
+// 导入 Sass 模块（新 API）
+@use "sass:color";
+@use "sass:math";
+
 // ========== Sass 变量 ==========
 $primary-color: #409eff;
 $success-color: #67c23a;
@@ -193,20 +197,20 @@ $transition-time: 0.3s;
 
       .parent {
         padding: $base-spacing;
-        background: lighten($primary-color, 40%);
+        background: color.scale($primary-color, $lightness: 40%);
         border-radius: $border-radius;
 
         .child {
           padding: $base-spacing;
-          background: lighten($primary-color, 30%);
+          background: color.scale($primary-color, $lightness: 30%);
           border-radius: $border-radius;
 
           .grandchild {
-            padding: $base-spacing / 2;
-            background: lighten($primary-color, 20%);
+            padding: math.div($base-spacing, 2);
+            background: color.scale($primary-color, $lightness: 20%);
             color: white;
             text-align: center;
-            border-radius: $border-radius / 2;
+            border-radius: math.div($border-radius, 2);
           }
         }
       }

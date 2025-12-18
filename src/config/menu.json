@@ -62,6 +62,54 @@
         "component": "PiniaDemo"
       }
     ]
+  },
+  {
+    "path": "/admin",
+    "name": "Admin",
+    "title": "系统管理",
+    "icon": "Setting",
+    "roles": ["admin"],
+    "children": [
+      {
+        "path": "/admin/users",
+        "name": "UserManagement",
+        "title": "用户管理",
+        "icon": "User",
+        "component": "UserManagement",
+        "roles": ["admin"]
+      },
+      {
+        "path": "/admin/settings",
+        "name": "SystemSettings",
+        "title": "系统设置",
+        "icon": "Setting",
+        "component": "SystemSettings",
+        "roles": ["admin"]
+      }
+    ]
+  },
+  {
+    "path": "/user",
+    "name": "User",
+    "title": "个人中心",
+    "icon": "User",
+    "roles": ["user", "admin"],
+    "children": [
+      {
+        "path": "/user/profile",
+        "name": "UserProfile",
+        "title": "个人资料",
+        "icon": "User",
+        "component": "UserProfile"
+      },
+      {
+        "path": "/user/orders",
+        "name": "UserOrders",
+        "title": "我的订单",
+        "icon": "List",
+        "component": "UserOrders"
+      }
+    ]
   }
 ]
 

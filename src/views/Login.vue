@@ -20,17 +20,53 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+import { useMenuStore } from '@/stores/menu'
+import { getMenuConfig } from '@/utils/menu'
+import { ElMessage } from 'element-plus'
 
 const router = useRouter()
+const userStore = useUserStore()
+const menuStore = useMenuStore()
+
 const form = ref({
   username: '',
   password: ''
 })
 
-const handleLogin = () => {
-  // 模拟登录
-  localStorage.setItem('token', 'mock-token')
-  router.push('/')
+const handleLogin = async () => {
+  // 模拟登录逻辑
+  // 实际项目中应该调用登录 API
+  try {
+    // 模拟根据用户名设置不同角色
+    let userRoles = ['user'] // 默认普通用户
+    
+    if (form.value.username === 'admin') {
+      userRoles = ['admin'] // 管理员
+    } else if (form.value.username === 'editor') {
+      userRoles = ['editor', 'user'] // 编辑者（可以有多个角色）
+    }
+    
+    // 登录，设置用户信息和角色
+    userStore.login({
+      token: 'mock-token-' + Date.now(),
+      userInfo: {
+        username: form.value.username,
+        roles: userRoles
+      },
+      roles: userRoles
+    })
+    
+    // 重新加载菜单（根据角色过滤）
+    const menuConfig = getMenuConfig()
+    menuStore.reloadMenu(menuConfig, userRoles)
+    
+    ElMessage.success('登录成功')
+    router.push('/')
+  } catch (error) {
+    console.error('登录失败:', error)
+    ElMessage.error('登录失败，请重试')
+  }
 }
 </script>
 
